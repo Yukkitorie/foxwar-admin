@@ -14,7 +14,7 @@ export default config({
             // Используем JSON формат, так как это надежнее для многоязычных полей
             format: { data: 'json' },
             schema: {
-                slug: fields.string({
+                slug: fields.text({
                     label: 'Техническое имя (Slug)',
                     description: 'Используется в URL. Например: winter-battle-2025'
                 }),
@@ -25,15 +25,15 @@ export default config({
                     publicPath: '@/assets/images/uploads/',
                 }),
                 // Поля для Русского языка
-                title_ru: fields.string({ label: 'Название (RU)' }),
+                title_ru: fields.text({ label: 'Название (RU)' }),
                 description_ru: fields.text({ label: 'Описание (RU)', multiline: true }),
 
                 // Поля для Английского языка
-                title_en: fields.string({ label: 'Название (EN)' }),
+                title_en: fields.text({ label: 'Название (EN)' }),
                 description_en: fields.text({ label: 'Описание (EN)', multiline: true }),
 
                 // Поля для Латышского языка
-                title_lv: fields.string({ label: 'Название (LV)' }),
+                title_lv: fields.text({ label: 'Название (LV)' }),
                 description_lv: fields.text({ label: 'Описание (LV)', multiline: true }),
             },
         }),
@@ -45,10 +45,10 @@ export default config({
             path: 'src/content/pricing/*',
             format: { data: 'json' },
             schema: {
-                title_ru: fields.string({ label: 'Услуга (RU)' }),
-                title_en: fields.string({ label: 'Услуга (EN)' }),
-                title_lv: fields.string({ label: 'Услуга (LV)' }),
-                price: fields.string({ label: 'Стоимость' }),
+                title_ru: fields.text({ label: 'Услуга (RU)' }),
+                title_en: fields.text({ label: 'Услуга (EN)' }),
+                title_lv: fields.text({ label: 'Услуга (LV)' }),
+                price: fields.text({ label: 'Стоимость' }),
             }
         }),
     },

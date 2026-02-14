@@ -1,18 +1,15 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
-  "compilerOptions": {
-    "module": "ESNext",
-    "moduleResolution": "Bundler", // Или "Node"
-    "jsx": "react-jsx", // Важно для Keystatic
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true
-  }
+    "extends": "astro/tsconfigs/strict",
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "jsx": "react-jsx",
+        "strict": true,
+        "skipLibCheck": true,
+        "allowJs": true,
+        "noEmit": true,
+        "isolatedModules": true,
+        "verbatimModuleSyntax": false
+    }
 }

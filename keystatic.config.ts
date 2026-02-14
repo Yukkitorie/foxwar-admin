@@ -3,15 +3,16 @@ import { config, collection, fields } from '@keystatic/core';
 export default config({
     storage: {
         kind: 'github',
-        repo: 'yukkitorie/foxwar-master', // Твой основной репозиторий
+        repo: 'yukkitorie/foxwar-master',
     },
     collections: {
-        // Коллекция для Мероприятий (Events)
+        // Коллекция для Мероприятий
         events: collection({
             label: 'Мероприятия',
             slugField: 'slug',
-            path: 'src/content/events/*', // Путь к файлам в основном репо
-            format: { contentField: 'content_ru' },
+            path: 'src/content/events/*',
+            // Используем JSON формат, так как это надежнее для многоязычных полей
+            format: { data: 'json' },
             schema: {
                 slug: fields.string({
                     label: 'Техническое имя (Slug)',
@@ -20,10 +21,9 @@ export default config({
                 date: fields.date({ label: 'Дата мероприятия' }),
                 image: fields.image({
                     label: 'Обложка',
-                    directory: 'src/assets/images/uploads', // Твоя папка для картинок
+                    directory: 'src/assets/images/uploads',
                     publicPath: '@/assets/images/uploads/',
                 }),
-
                 // Поля для Русского языка
                 title_ru: fields.string({ label: 'Название (RU)' }),
                 description_ru: fields.text({ label: 'Описание (RU)', multiline: true }),
@@ -38,11 +38,12 @@ export default config({
             },
         }),
 
-        // Коллекция для Цен (на основе твоих данных)
+        // Коллекция для Цен
         pricing: collection({
             label: 'Цены',
             slugField: 'title_ru',
             path: 'src/content/pricing/*',
+            format: { data: 'json' },
             schema: {
                 title_ru: fields.string({ label: 'Услуга (RU)' }),
                 title_en: fields.string({ label: 'Услуга (EN)' }),
